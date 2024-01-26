@@ -1,57 +1,39 @@
-package Multilevelinheritance;
-//Multilevelinheritance means derived class from the parent class 
-//and also that derived class acts as a parent class for other classes
-public class ClassA {
-	void m1() {
-		System.out.println("m1() method from Parent class classA");
+package multilpleinheritance;
+//multiple inheritance is achieved using interfaces
+public class ClassA implements Java,Python{
+	public void language(){
+		System.out.println("Programming Languages:");
+	}
+	public void java(){
+		System.out.println("Java is a Object Oriented Programing language");
+	}
+	public void python(){
+		System.out.println("C is a procedural Programming Language");
 	}
 	public static void main(String[] args) {
-		ClassA obj=new ClassA();//creating an obj
-		obj.m1();//calling m1() method using obj reference
-		}
+		ClassA lang=new ClassA();
+		lang.language();
+		//calling methods through interfaces
+		lang.java();
+		lang.python();
+		
+	}
 }
 /*
- o/p:m1() method from Parent class classA
+ o/p:Programming Languages:
+	 Java is a Object Oriented Programing language
+	 C is a procedural Programming Language
  */
-========================================================================
-package Multilevelinheritance;
+=================================================================================
+package multilpleinheritance;
 
-public class ClassB extends ClassA{//extend keyword is used to inherit the other class properties
-	void m2() {
-		System.out.println("m2() method from child class ClassB");//this is a child class for classA
-	}
-	
-	public static void main(String[] args) {
-		ClassB obj=new ClassB();	
-		obj.m1();//m1() method is called using classA 
-		obj.m2();
-	}
+public interface Java {
+	void java(); 		
 }
-/*
+=========================================
+package multilpleinheritance;
 
-o/p:m1() method from Parent class classA
-	m2() method from child class ClassB
-
-*/
-========================================================================
-package Multilevelinheritance;
-
-public class ClassC extends ClassB{
-	void m3() {
-		System.out.println("m3() method from grandchild class classC");//this is a grandchild class for classB
-	}
-	
-	public static void main(String[] args) {
-		ClassC obj=new ClassC();
-		obj.m1();//classB has m2() method and it calso has classA properties so m1() will be called
-		obj.m2();//m2() method is called using classB
-		obj.m3();
-	}
+public interface Python {
+	void python();
 }
-/*
 
-o/p:m1() method from Parent class classA
-	m2() method from child class ClassB
-	m3() method from grandchild class classC
-
-*/
